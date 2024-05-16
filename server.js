@@ -1,6 +1,6 @@
 // MIDDLEWARE
 
-
+  
 //importing the Express.js framework into our script. 
 const express = require('express')
 
@@ -13,6 +13,8 @@ const app = express()
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
+// MIDDLEWARE
+app.use(express.urlencoded({extended: true}))
 
 
 
@@ -28,3 +30,7 @@ app.listen(PORT, () => {
 const breadsController = require('./controllers/breads_controller.js')
 app.use('/breads', breadsController)
 
+const mongoose = require('mongoose')
+mongoose.connect(process.env.MONGO_URI) 
+   console.log('connected to mongo: ', process.env.MONGO_URI) 
+  
