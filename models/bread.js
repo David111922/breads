@@ -5,12 +5,26 @@ const  { Schema } = mongoose
 
 
 // !schema
-
 const breadSchema = new Schema({
   name: { type: String, required: true },
   hasGluten: Boolean,
-  image: { type: String, default: 'http://placehold.it/500x500.png' }
+  image: { type: String, default: 'http://placehold.it/500x500.png' },
+  baker: {
+    type: String,
+    enum: ['Rachel', 'Monica', 'Joey', 'Chandler', 'Ross', 'Phoebe']
+  }
 })
+
+
+
+
+
+// !old code replaces for schema
+// const breadSchema = new Schema({
+//   name: { type: String, required: true },
+//   hasGluten: Boolean,
+//   image: { type: String, default: 'http://placehold.it/500x500.png' }
+// })
 
 const Bread = mongoose.model('Bread', breadSchema)
 module.exports = Bread

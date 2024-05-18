@@ -98,8 +98,11 @@ breads.post("/", (req, res) => {
 
 // DELETE
 breads.delete("/:id", (req, res) => {
+  console.log("req delete",req.params)
   Bread.findByIdAndDelete(req.params.id).then((deletedBread) => {
     res.status(303).redirect("/breads");
+  }).catch(err => {
+    console.error("Db err", err)
   });
 });
 
