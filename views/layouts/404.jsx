@@ -1,5 +1,5 @@
 const React = require('react')
-const Default = require('./Default')
+const Default = require('.layouts/default')
 
 function NotFound () {
     return (

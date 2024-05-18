@@ -1,6 +1,10 @@
+// !requires mongoose
 const mongoose = require('mongoose')
-const {shema} = mongoose
+const  { Schema } = mongoose
 
+
+
+// !schema
 
 const breadSchema = new Schema({
   name: { type: String, required: true },
@@ -10,7 +14,6 @@ const breadSchema = new Schema({
 
 const Bread = mongoose.model('Bread', breadSchema)
 module.exports = Bread
-
 
 // module.exports = [
 //     {
