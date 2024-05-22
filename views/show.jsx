@@ -9,23 +9,22 @@ function Show({ bread, index }) {
       <h3>{bread.name}</h3>
       <p>
         and it
-        {bread.hasGluten ? <span> does </span> : <samp> does not </samp>}
+        {
+          bread.hasGluten
+            ? <span> does </span>
+            : <samp> does not </samp>
+        }
         have gluten
       </p>
-      
+
       <img src={bread.image} alt={bread.image} />
       <p>{bread.getBakedBy()}</p>
-      <li>
-        {/* should this still be her ???? */}
-        <a href="/breads"> Go home </a>{" "}
-      </li>
+      <li><a href="/breads"> Go home </a> </li>
 
-      <a href={`/breads/${bread.id}/edit`}>
-        <button>Edit</button>
-      </a>
+      <a href={`/breads/${bread.id}/edit`}><button>Edit</button></a>
 
       <form action={`/breads/${bread.id}?_method=DELETE`} method="POST">
-        <input type="submit" value="DELETE" />
+        <input type='submit' value="DELETE" />
       </form>
     </Default>
   );

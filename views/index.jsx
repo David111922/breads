@@ -5,6 +5,7 @@ function Index({ breads, bakers, title }) {
   return (
     <Default title={title}>
       <h2>Index Page</h2>
+
       <h3>Bakers</h3>
       <ul>
         {
@@ -17,7 +18,6 @@ function Index({ breads, bakers, title }) {
           })
         }
       </ul>
-      
       <h3>Breads</h3>
 
       <div className="newButton">
@@ -30,7 +30,7 @@ function Index({ breads, bakers, title }) {
         {breads.map((bread, index) => {
           return (
             <li key={index}>
-              <a href={`/breads/${bread.id}`}>{bread.name}</a>
+              <a href={`/breads/${bread._id}`}>{bread.name}</a>
             </li>
           );
         })}
@@ -40,4 +40,3 @@ function Index({ breads, bakers, title }) {
 }
 
 module.exports = Index;
-

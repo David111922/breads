@@ -1,5 +1,5 @@
-const React = require("react");
-const Default = require("./layouts/default");
+const React = require('react')
+const Default = require('./layouts/default')
 
 function Edit({ bread, bakers }) {
   return (
@@ -7,6 +7,7 @@ function Edit({ bread, bakers }) {
       <h2>Edit a bread</h2>
       <form action={`/breads/${bread.id}?_method=PUT`} method="POST">
         <label htmlFor="name">Name</label>
+
         <input
           type="text"
           name="name"
@@ -15,21 +16,26 @@ function Edit({ bread, bakers }) {
           defaultValue={bread.name}
         />
         <label htmlFor="image">Image</label>
-        <input type="text" name="image" id="image" defaultValue={bread.image} />
-        
+
+        <input
+          type="text"
+          name="image"
+          id="image"
+          defaultValue={bread.image}
+        />
+
         {/* Baker */}
         <label htmlFor="baker">Baker</label>
         <select name="baker" id="baker" defaultValue={bread.baker}>
           {bakers.map((baker) => {
             return (
-              <option value={baker.id} key={baker.id}>
-                {baker.name}
-              </option>
-            );
+              <option value={baker.id} key={baker.id}>{baker.name}</option>
+            )
           })}
         </select>
 
         <label htmlFor="hasGluten">Has Gluten?</label>
+
         <input
           type="checkbox"
           name="hasGluten"
@@ -40,7 +46,7 @@ function Edit({ bread, bakers }) {
         <input type="submit" />
       </form>
     </Default>
-  );
+  )
 }
 
-module.exports = Edit;
+module.exports = Edit
