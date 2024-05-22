@@ -1,53 +1,43 @@
-const React = require('react')
-const Default = require('./layouts/default')
+const React = require("react");
+const Default = require("./layouts/default");
 
-
-function New () {
+function New({ bakers }) {
   return (
     <Default>
       <h2>Add a new bread</h2>
       <div className="backButton">
-          <a href="/breads"><button>Go back to the index</button></a>
+        <a href="/breads">
+          <button>Go back to the index</button>
+        </a>
       </div>
+      {/* new name */}
 
-      <form action='/breads' method='POST'>
+      <form action="/breads" method="POST">
         <label htmlFor="name">Name</label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          required
-        />
+
+        <input type="text" name="name" id="name" required />
+
         <label htmlFor="image">Image</label>
-        <input
-          type="text"
-          name="image"
-          id="image"/>
+        <input type="text" name="image" id="image" />
+
+        {/* Baker */}
+        <label htmlFor="baker">Baker</label>
+        <select name="baker" id="baker">
+          {bakers.map((baker) => (
+            <option value={baker.id} key={baker.id}>
+              {baker.name}
+            </option>
+          ))}
+        </select>
+
         <label htmlFor="hasGluten">Has Gluten?</label>
-        <input
-          type="checkbox"
-          name="hasGluten"
-          id="hasGluten"
-          defaultChecked
-        />
-<label htmlFor="baker">Baker</label>
-<select name="baker" id="baker">
-  <option value="Rachel">Rachel</option>
-  <option value="Monica">Monica</option>
-  <option value="Joey">Joey</option>
-  <option value="Chandler">Chandler</option>
-  <option value="Ross">Ross</option>
-  <option value="Phoebe">Phoebe</option>
-  
-</select>
-
-
+        <input type="checkbox" name="hasGluten" id="hasGluten" defaultChecked />
 
         <br />
-        <input type="submit"/>
+        <input type="submit" />
       </form>
     </Default>
   )
 }
 
-module.exports = New
+module.exports = New;

@@ -12,10 +12,11 @@ function Show({ bread, index }) {
         {bread.hasGluten ? <span> does </span> : <samp> does not </samp>}
         have gluten
       </p>
+      
       <img src={bread.image} alt={bread.image} />
-      <p>Baked by {bread.baker}</p>
+      <p>{bread.getBakedBy()}</p>
       <li>
-       {/* should this still be her ???? */}
+        {/* should this still be her ???? */}
         <a href="/breads"> Go home </a>{" "}
       </li>
 
